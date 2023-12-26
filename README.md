@@ -18,7 +18,8 @@ We need these tools before starting attack.
 
 Python comes installed on linux by default. 
 
-You can get Scapy from the linux Software Center:
+You can download Scapy from terminal like this figure
+
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/install-scapy.png)
 
 
