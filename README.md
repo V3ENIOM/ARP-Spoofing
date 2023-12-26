@@ -114,8 +114,7 @@ victim, spoof, and mac variables are assigned by taking user input. These inputs
 
 3- ARP Packet Creation:
 
-`An ARP` (Address Resolution Protocol) packet is constructed using the provided inputs.
-ARP(op=op, psrc=spoof, pdst=victim, hwdst=mac) creates an ARP packet with:
+
 `op=1`: Indicates this is an ARP request.
 
 `psrc=spoof:` Source IP address (router's IP, pretending to be the source).
