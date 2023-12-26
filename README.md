@@ -70,18 +70,24 @@ $ sudo python3 '/home/"{path}"/mmattack.py'
 ```
 
 Now all you need to do is enter the details it asks. Here is an example of what it should look like:
+
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/dataforattack.png)
 
 If everything goes well, you should be able to start sending packets.
+
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/packets.png)
 
 Now while this ARP request is being spammed, we need to open wireshark
+
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wiresharkstart.png)
+
 
 Select the proper interface you are connected to. If you are not sure, select the `any` option and click start.
 
 You should see a screen like this now:
+
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark2.png)
+
 
 With the `ARP` protocol requests getting spammed. If you don't see this, you have done something wrong. 
 
@@ -97,3 +103,32 @@ and press enter.
 
 ![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark2.png)
 
+
+# Explaining the code
+
+1- The script imports necessary functions and modules from Scapy (from scapy.all import *). `Scapy` is a versatile packet manipulation library used here for crafting and sending packets.
+
+2- User Inputs:
+
+victim, spoof, and mac variables are assigned by taking user input. These inputs are for the victim's IP, the router's IP (which should be on the same network), and the victim's MAC address respectively.
+
+3- ARP Packet Creation:
+
+`An ARP` (Address Resolution Protocol) packet is constructed using the provided inputs.
+ARP(op=op, psrc=spoof, pdst=victim, hwdst=mac) creates an ARP packet with:
+`op=1`: Indicates this is an ARP request.
+
+`psrc=spoof:` Source IP address (router's IP, pretending to be the source).
+
+`pdst=victim:` Destination IP address (victim's IP).
+
+`hwdst=mac`: Destination MAC address (victim's MAC).
+
+4-Sending ARP Packets in a Loop
+
+The script enters an infinite loop (while True:).
+Inside the loop, 
+
+it sends the ARP packet using send(arp). This effectively sends out ARP requests continuously to the victim's IP address, pretending to be the router.
+
+5-last comment: This comment provide you ability to control the rate of attack
