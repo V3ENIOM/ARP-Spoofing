@@ -86,7 +86,7 @@ Select the proper interface you are connected to. If you are not sure, select th
 
 You should see a screen like this now:
 
-![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark2.png)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark1.png)
 
 
 With the `ARP` protocol requests getting spammed. If you don't see this, you have done something wrong. 
