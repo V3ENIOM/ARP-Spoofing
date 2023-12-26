@@ -8,8 +8,8 @@ This python script allows you to perform ARP spoofing, which can be used to perf
 
 We need these tools before starting attack.
 ```
-* Python 3.10.12
-* Scapy 2.2.0
+* Python3
+* Scapy 
 * Wireshark
 * python script
 ```
@@ -19,7 +19,7 @@ We need these tools before starting attack.
 Python comes installed on linux by default. 
 
 You can get Scapy from the linux Software Center:
-![](scapyimg)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/install-scapy.png)
 
 
 
@@ -28,7 +28,7 @@ You can get Scapy from the linux Software Center:
 
 You can download this python script by running the following command in the terminal:
 ```
-$ wget "link of script"
+$ wget "https://github.com/V3ENIOM/ARP-Spoofing/blob/main/src/ARP.py"
 ```
 
 # Setting up IP Forwarding
@@ -42,18 +42,17 @@ To turn on IP forwarding, open terminal and type:
 $ echo 1 > /proc/sys/net/ipv4/ip_forward
 
 ```
-
 This will set value in ip_forward file to be 1 instead of 0
-![](forwarding)
+
 
 Now that we have that sorted, we need to get the MAC address and the IP address of the victim we want to attack on our network. To do that, you first need to see what IP address the router has given you. 
 
-On linux you can get that info by using this command line
+On linux you can get these details by using Nmap or just use this command line
 ```
-$ arp
+$ sudo arp -a
 
 ```
-![]myip address)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/sudo%20arp%20-a.png)
 
 # Gathering MAC and IP addresses
 
@@ -66,22 +65,22 @@ You should see something like this after it is done scanning your network:
 
 Now that you have gotten the IP address and the MAC address of the victim, all you need to do is launch the actual attack. To do that fire up the script you downloaded.
 ```
-$ sudo python3 '/home/"(path)"/mmattack.py'
+$ sudo python3 '/home/"{path}"/mmattack.py'
 ```
 
 Now all you need to do is enter the details it asks. Here is an example of what it should look like:
-![](datatoattack)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/dataforattack.png)
 
 If everything goes well, you should be able to start sending packets.
-![](sending packets)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/packets.png)
 
 Now while this ARP request is being spammed, we need to open wireshark
-![](openwireshark)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wiresharkstart.png)
 
 Select the proper interface you are connected to. If you are not sure, select the `any` option and click start.
 
 You should see a screen like this now:
-![](wireshark)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark2.png)
 
 With the `ARP` protocol requests getting spammed. If you don't see this, you have done something wrong. 
 
@@ -95,5 +94,5 @@ ip.addr==192.168.1.4
 
 and press enter.
 
-![](wiresharkpackets)
+![](https://github.com/V3ENIOM/ARP-Spoofing/blob/main/Snaps/wireshark.png)
 
